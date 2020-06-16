@@ -1,9 +1,7 @@
 package com.example.daggerjava;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
+import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -11,8 +9,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Engine engine = new Engine();
-        Car car = new Car(engine);
+        AppComponent component =DaggerAppComponent.create();
+        Car car=   component.getCar();
         car.drive();
 
     }
