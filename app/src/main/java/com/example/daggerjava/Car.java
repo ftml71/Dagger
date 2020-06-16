@@ -6,11 +6,10 @@ import javax.inject.Inject;
 
 public class Car {
     private static final String TAG = "Car";
-    private Engine engine;
+    @Inject Engine engine;
 
     @Inject
-    public Car(Engine engine) {
-        this.engine = engine;
+    public Car() {
         Log.d(TAG, "car created");
     }
 
