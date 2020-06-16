@@ -2,7 +2,7 @@ package com.example.daggerjava;
 
 import dagger.Component;
 
-@Component
+@Component(modules = WheelsModule.class)
 public interface AppComponent {
     Car getCar();
     void inject(MainActivity activity);
