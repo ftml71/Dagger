@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AppComponent component = DaggerAppComponent.create();
+        AppComponent component = DaggerAppComponent.builder()
+                .diselEnginModule(new DiselEnginModule(120)).build();
         component.inject(this);
 
     }

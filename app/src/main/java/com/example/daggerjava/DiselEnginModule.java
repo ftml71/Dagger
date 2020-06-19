@@ -4,7 +4,15 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public abstract class DiselEnginModule {
+public class DiselEnginModule {
+    private final int horsePower;
+
+    public DiselEnginModule(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
     @Provides
-    abstract Engine provideEngin(DiselEngine diselEngine);
+    Engine provideEngin() {
+        return new DiselEngine(horsePower);
+    }
 }
