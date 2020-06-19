@@ -5,19 +5,22 @@ import android.util.Log;
 import javax.inject.Inject;
 
 public class Car {
-    private static final String TAG = "Car";
-    @Inject
+    private static final String TAG = "Dagger2 Car";
+
     Engine engine;
     Wheels wheels;
 
     @Inject
-    public Car(Wheels wheels) {
+    public Car(Engine engine,Wheels wheels) {
+        this.engine = engine;
         this.wheels = wheels;
+
         Log.d(TAG, "car created");
     }
 
     @Inject
     public void drive() {
+        engine.start();
         Log.d(TAG, "driving");
     }
 }
